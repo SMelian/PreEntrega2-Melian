@@ -175,26 +175,31 @@ text-align: left;
     width: 100%;
     height: auto;
     display: grid;
-    grid-template-columns: 1fr ;
-    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1;
     font-size: 1.5em;
+    display: block;
+
 }
 
 .ContenedorReasons{
     padding: 30px;
-    width: 100%;
+    width: 50%;
     display: grid;
     grid-template-columns: 1fr ;
-    grid-template-rows: auto;
+    grid-template-rows: 1;
     align-items: center;
 
 }
 
-.Reason{
+.cards{
     width: 100%;
+    padding: 10px;
+    margin: 10px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr) ;
-    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1;
+    
 }
 
 .hijo{
@@ -237,8 +242,8 @@ text-align: left;
     grid-area: IRealfood;
 }
 
-.Reasons{
-    grid-area: Reasons;
+.cards{
+    grid-area: cards;
 
 }
 
@@ -256,34 +261,31 @@ text-align: left;
 
 
 
-@media (width < 420) {
-#index {
-    display: grid;
-    grid-template-columns: 1fr ;
-    grid-template-rows: repeat(6, 1fr);
-    grid-template-areas: 
-    "Nav"
-    "IRealFood"
-    "Reasons"
-    "FotoD"
-    "FotoD";
-}
-}
+@media only screen and (max-width: 767px) { /* para celulares */
+    .contenedor {
+      display: block;
+    }
+    .cards{
+        display: block;
 
-@media (width < 720) {
-#index {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr) ;
-    grid-template-rows: repeat(6, 1fr);
-    grid-template-areas: 
-    "Nav Nav"
-    "IRealFood IRealFood"
-    "Reasons Reasons"
-    "FotoD FotoD";
-}
+    }
+} 
 
-}
-
-
-
-
+  @media only screen and (min-width: 768px) and (max-width: 1023px) { /* para tablets */
+    .contenedor{
+      grid-template-columns: 1fr;
+    }
+    .cards{
+        display: flex;
+    } 
+} 
+  
+  @media only screen and (min-width: 1024px) { /* para computadoras */
+    .contenedor {
+      grid-template-columns: 1fr 1fr;
+    }
+    .cards{
+        display: flex;
+    }
+ }
+  
